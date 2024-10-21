@@ -1,0 +1,24 @@
+# Node modules in the server folder
+Server/node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Other files you want to ignore
+*.bak
+*.tmp
