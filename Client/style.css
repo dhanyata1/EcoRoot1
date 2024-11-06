@@ -1,0 +1,52 @@
+#carouselExample .carousel-item img {
+    height: 400px;
+    width: auto;
+    object-fit: cover; 
+}
+
+.card {
+    border: none;
+    transition: all 0.3s; 
+    border-radius: 15px; 
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 250px; 
+    object-fit: cover; 
+    border-top-left-radius: 15px; 
+    border-top-right-radius: 15px; 
+}
+.footer{
+    background-color: rgb(220, 249, 224);
+}
+.custom-link {
+    color:black; /* Change this to the color you desire */
+    text-decoration: none;
+}
+.logo-container {
+    display: inline-block;
+    margin-right: 4px; 
+}
+
+.logo-img {
+    width: 70px;
+    height: 60px; /* Adjust the height of your logo */
+    border-radius: 50%; /* Make the logo round */
+}
+
+/* Like icon base styling */
+.like-icon i {
+    color: rgb(218, 161, 223);
+    /* Default color */
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+/* Style for the liked (red) heart */
+.like-icon .fas.fa-heart.liked {
+    color: rgb(221, 34, 130);
+}

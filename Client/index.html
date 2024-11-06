@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoRoot</title>
+    <link rel="icon" type="image/x-icon"
+        href="./images/Logo.jpeg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .heart-icon {
+            margin-top: 7px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #a39b9b;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <div class="logo-container"> <!-- Container for logo -->
+                <img src="./images/Logo.jpeg" alt="EcoRoot Logo" class="logo-img">
+            </div>
+            EcoRoot
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Decor</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="./components/candle.html">Candles</a></li>
+                        <li><a class="dropdown-item" href="./components/hanger.html">Hanger</a></li>
+                        <li><a class="dropdown-item" href="./components/planters.html">Planters</a></li>
+                        <li><a class="dropdown-item" href="./components/deskOrganizer.html">Desk Organizer</a></li>
+                        <li><a class="dropdown-item" href="./components/vase.html">Vase</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="./components/moreProducts.html">More items...</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Furniture</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="./components/bench.html">Bench</a></li>
+                        <li><a class="dropdown-item" href="./components/chairs.html">Chairs</a></li>
+                        <li><a class="dropdown-item" href="./components/potStand.html">Pot Stand</a></li>
+                        <li><a class="dropdown-item" href="./components/table.html">Tables</a></li>
+                        <li><a class="dropdown-item" href="./components/tools.html">Tools</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="./components/moreProducts.html">More items...</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./Uploads.html">Uploads</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+            <button class="btn btn-outline-primary mx-2" id="loginBtn" type="button" data-bs-toggle="modal"
+                data-bs-target="#loginModal">Login</button>
+            <button class="btn btn-outline-primary mx-2" id="signupBtn" type="button" data-bs-toggle="modal"
+                data-bs-target="#signupModal">Signup</button>
+            <button class="btn btn-outline-danger mx-2" id="logoutBtn" type="button" style="display: none;">Logout</button>
+
+                <!-- User Profile Section (Hidden Initially) -->
+                <div class="dropdown" id="userProfile" style="display: none;">
+                    <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="profileDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="" alt="Profile" id="profilePicture" style="width: 30px; height: 30px; border-radius: 50%;">
+                        <span id="username"></span>
+                    </a>
+            
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <li><a class="dropdown-item" href="#">View Profile</a></li>
+                        <li><a class="dropdown-item" id="logoutLink" href="#">Logout</a></li>
+                    </ul>
+                </div>
+            
+                <!-- Like Icon -->
+                <i class="far fa-heart heart-icon" style="font-size: 1.5em; color: hsl(0, 95%, 41%);"></i>
+            </form>
+
+        </div>
+    </div>
+</nav>
+
+    <div style="text-align: center;">
+        <p style="font-size: 36px; font-weight: bold; color: #1f7722; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">
+            Let's Join Hands To Make Plastic Free Earth</p>
+    </div>
+
+
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://image.slidesdocs.com/responsive-images/background/tatami-japanese-style-living-room-decoration-renderings-powerpoint-background_32df57c3a3__960_540.jpg"
+                    class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">             
+                <img src="../Client//images//house1.jpeg" class="d-block w-100" alt="...">
+            </div>
+
+            <div class="carousel-item">
+                <img src="../Client/images//house2.jpeg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div style="text-align: center;">
+        <p style="font-size: 30px;  font-weight: bold; color: #216d84; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Our
+            Products</p>
+    </div>
+    <div
+        style="background-image: url('./images/treelogo.png'); background-size: cover; background-color: rgba(0, 0, 0, 0);">
+        <!-- Your existing content goes here -->
+        <div
+            style="font-family: Arial, sans-serif; line-height: 1.6; background-color: rgba(249, 249, 249, 0.5); margin: 0; padding: 0;">
+
+            <div class="container"
+                style="max-width: 800px; margin: 20px auto; background-color: #fff; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px;">
+                <div class="navbar"
+                    style="background-color: #4CAF50; color: #fff; text-align: center; padding: 10px 0; border-radius: 5px 5px 0 0;">
+                    <p class="navbar-brand" style="font-size: 36px; margin: 0;"><b>Think Exclusive Future, Think
+                            ECOROOT</b></p>
+                </div>
+
+                <header class="header-text" style="text-align: center; font-size: 28px; color: #333; margin: 20px 0;">
+                    Welcome to ECOROOT - Sustainable Bamboo Products</header>
+
+                <div class="content" style="font-size: 18px; color: #666; text-align: justify;">
+                    <p>Bamboo products can store carbon for a long time and maintain a low or even zero carbon impact
+                        throughout the product life cycle. The same area of bamboo forest can release 35% more oxygen
+                        than a regular forest, making the bamboo industry not only low-carbon but also carbon-negative.
+                    </p>
+
+                    <p>Bamboo grows incredibly quickly, requires no fertilizer, and regenerates from its own roots.
+                        Unlike plastics, which take hundreds of years to decompose, bamboo packaging is also
+                        biodegradable. Bamboo is a renewable and versatile crop. Although it's as tough as wood, it's
+                        actually a type of grass, and some species can grow over a meter a day. The crop requires very
+                        little water and doesn't need pesticides or fertilizers to grow.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Building a Better Planet</h1>
+        <p>Connect with us to make a positive impact!</p>
+        <img src="./images/sliceimg.jpeg" alt="Slice of nature">
+        <img src="./images/sliceimg2.jpeg" alt="Slice of nature">
+    </div>
+
+
+    <div>
+
+    </div>
+
+    <div class="container mt-4 images">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="position: relative;">
+                    <img src="./images/1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Transform Your Space</h5>
+                        <p class="card-text">From stylish vases to trendy candle holders, our decorators are sure to
+                            elevate the
+                            ambiance of any room.</p>
+                    </div>
+                    <span class="like-icon" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+                        <i class="fas fa-heart"></i> <!-- You can replace this with any like icon or image -->
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="./images/2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Home Accents Galore</h5>
+                        <p class="card-text"> Each piece is meticulously chosen to add a touch of elegance and
+                            personality to your living space.</p>
+                    </div>
+                    <span class="like-icon" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+                        <i class="fas fa-heart"></i> <!-- You can replace this with any like icon or image -->
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="./images/4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Enhance Your Environment</h5>
+                        <p class="card-text"> With our carefully chosen pieces, you can effortlessly transform any room
+                            into a sanctuary of style and comfort</p>
+                    </div>
+                    <span class="like-icon" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+                        <i class="fas fa-heart"></i> <!-- You can replace this with any like icon or image -->
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 images">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="./images/5.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Chic & Unique</h5>
+                        <p class="card-text"> From charming wall art to elegant table decor, each piece is thoughtfully
+                            selected to bring warmth to your home.</p>
+                    </div>
+                    <span class="like-icon" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+                        <i class="fas fa-heart"></i> <!-- You can replace this with any like icon or image -->
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="./images/6.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Personalize Your Home</h5>
+                        <p class="card-text">From stylish vases to trendy candle holders, our decorators are sure to
+                            elevate the ambiance of any room.</p>
+                    </div>
+                    <span class="like-icon" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+                        <i class="fas fa-heart"></i> <!-- You can replace this with any like icon or image -->
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="./images/7.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Curated Elegance</h5>
+                        <p class="card-text">Let our decorators inspire you to design a space that feels uniquely yours.
+                        </p>
+                    </div>
+                    <span class="like-icon" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+                        <i class="fas fa-heart"></i> <!-- You can replace this with any like icon or image -->
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 images">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="./images/8.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Elevate Every Corner</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of the card's content.</p>
+                    </div>
+                    <span class="like-icon" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+                        <i class="fas fa-heart"></i> <!-- You can replace this with any like icon or image -->
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="./images/9.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Decor Delights</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of the card's content.</p>
+                    </div>
+                    <span class="like-icon" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+                        <i class="fas fa-heart"></i> <!-- You can replace this with any like icon or image -->
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="./images/10.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Finishing Touches</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            of the card's content.</p>
+                    </div>
+                    <span class="like-icon" style="position: absolute; top: 10px; right: 10px; cursor: pointer;">
+                        <i class="fas fa-heart"></i> <!-- You can replace this with any like icon or image -->
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <!-- Login Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">Signup</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm">
+                        <div class="mb-3">
+                            <label for="signupName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="signupName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="signupEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signupPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="signupConfirmPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Signup</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Company</h5>
+                        <ul class="list-unstyled mx-2">
+                            <li><a href="./components/FAQ.html" class="custom-link">FAQ<i
+                                        class="fa-regular fa-lightbulb"></i></a></li>
+                            <li>Our Team</li>
+                            <li>Contact <i class="fa-solid fa-phone"></i></li>
+                            <li>7059819696<i class="fa-solid fa-phone-volume"></i></li>
+                            <li>abc@gmail.com<i class="fa-solid fa-envelope"></i></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Things to Know</h5>
+                        <ul class="list-unstyled">
+                            <li>Orders Payments Shipping</li>
+                            <li>Returns and Refunds</li>
+                            <li><a href="./components/privacy.html" class="custom-link">Terms & Service</a></li>
+                            <li><a href="./components/privacy.html" class="custom-link">Privacy & Pilicy</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Follow Us</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fab fa-facebook"></i> Facebook</li>
+                            <li><i class="fab fa-twitter"></i> Twitter</li>
+                            <li><i class="fab fa-instagram"></i> Instagram</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>&copy; 2024 ECOROOT. Sustainable Bamboo Products.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

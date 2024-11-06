@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Product</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Upload Your Product</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <!-- Product Name -->
+            <div class="form-group">
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
+            </div>
+            <!-- Product Description -->
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" placeholder="Enter product description"
+                    required></textarea>
+            </div>
+            <!-- Product Price -->
+            <div class="form-group">
+                <label for="price">Price ($):</label>
+                <input type="number" id="price" name="price" step="0.01" placeholder="Enter price" required>
+            </div>
+            <!-- Product Image -->
+            <div class="form-group">
+                <label for="productImage">Upload Image:</label>
+                <input type="file" id="productImage" name="productImage" accept="image/*" required>
+            </div>
+            <!-- Additional Information -->
+            <div class="form-group">
+                <label for="additionalInfo">Additional Information:</label>
+                <textarea id="additionalInfo" name="additionalInfo" rows="3"
+                    placeholder="Additional details (e.g., size, color, etc.)"></textarea>
+            </div>
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Upload Product</button>
+            </div>
+        </form>
+        <div id="responseMessage"></div>
+    </div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = document.getElementById('uploadForm');
+            const formData = new FormData(form); // Collect form data
+
+            try {
+                const response = await fetch('http://localhost:5000/upload-product', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                const responseMessage = document.getElementById('responseMessage');
+
+                if (response.ok) {
+                    responseMessage.textContent = 'Product uploaded successfully!';
+                    responseMessage.style.color = 'green';
+                    form.reset(); // Reset form fields after successful upload
+                } else {
+                    responseMessage.textContent = data.error || 'Failed to upload product';
+                    responseMessage.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('responseMessage').textContent = 'Error uploading product';
+            }
+        });
+    </script>
+</body>
+</html>
